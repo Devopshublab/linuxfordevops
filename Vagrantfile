@@ -19,3 +19,16 @@ SCRIPT
 		vb.memory = "2048"
 	end    
   end
+
+config.vm.define "serverB” do |subconfig|
+    subconfig.vm.box = "boxomatic/centos-stream-9"
+	subconfig.vm.hostname = "serverB”
+	subconfig.vm.network "private_network", ip: "192.168.2.20"
+	subconfig.vm.provision "shell", inline:$setup_lab
+  
+	subconfig.vm.provider "virtualbox" do |vb|
+		vb.memory = "1024"
+	end
+  end
+
+end
