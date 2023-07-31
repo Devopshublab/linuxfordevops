@@ -8,16 +8,14 @@ sed -i "s/^PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd
 systemctl restart sshd
 SCRIPT
 
-  Vagrant.configure("2") do |config|
-  config.vm.define “devopshub” do |subconfig|
+ Vagrant.configure("2") do |config|
+  config.vm.define “serverA” do |subconfig|
     subconfig.vm.box = "boxomatic/centos-stream-9"
-	subconfig.vm.hostname = "devopshub"
+	subconfig.vm.hostname = "serverA"
 	subconfig.vm.network "private_network", ip: "192.168.2.10"
     subconfig.vm.provision "shell", inline:$setup_lab
 	
 	subconfig.vm.provider "virtualbox" do |vb|
 		vb.memory = "2048"
-	end
-    
+	end    
   end
-end
