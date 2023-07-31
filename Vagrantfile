@@ -8,7 +8,7 @@ sed -i "s/^PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd
 systemctl restart sshd
 SCRIPT
 
- Vagrant.configure("2") do |config|
+Vagrant.configure("2") do |config|
   config.vm.define “serverA” do |subconfig|
     subconfig.vm.box = "boxomatic/centos-stream-9"
 	subconfig.vm.hostname = "serverA"
@@ -20,7 +20,7 @@ SCRIPT
 	end    
   end
 
-config.vm.define "serverB” do |subconfig|
+ config.vm.define "serverB” do |subconfig|
     subconfig.vm.box = "boxomatic/centos-stream-9"
 	subconfig.vm.hostname = "serverB”
 	subconfig.vm.network "private_network", ip: "192.168.2.20"
@@ -30,5 +30,4 @@ config.vm.define "serverB” do |subconfig|
 		vb.memory = "1024"
 	end
   end
-
 end
