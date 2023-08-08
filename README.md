@@ -11,8 +11,8 @@ B. Softwares
   Vagrant
 Commands to setup your linux lab
   1. Open gitbash and run the below commands
-  2. mkdir devopslab
-  3. cd devopslab
+  2. mkdir linux_lab
+  3. cd linux_lab
   4. curl -o Vagrantfile https://raw.githubusercontent.com/devopshubin/linuxfordevops/main/Vagrantfile
   5. vagrant status
   6. vagrant up serverA
